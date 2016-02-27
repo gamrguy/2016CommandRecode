@@ -3,7 +3,6 @@ package org.usfirst.frc.team2186.robot.utilities;
 import java.util.ArrayList;
 
 import org.usfirst.frc.team2186.robot.RobotMap;
-import org.usfirst.frc.team2186.robot.RobotMap.DriveTrain;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -59,6 +58,11 @@ public class ShiftingSpeedController {
 	
 	public Encoder getEncoder() {
 		return m_encoder;
+	}
+	
+	public DoubleSolenoid.Value getState()
+	{
+		return m_value;
 	}
 
 }

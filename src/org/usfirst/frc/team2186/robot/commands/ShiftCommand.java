@@ -8,18 +8,10 @@ import org.usfirst.frc.team2186.robot.Robot;
  *	This command is used to shift the gearboxes.
  */
 public class ShiftCommand extends Command {
-
-	private int state;
-    public ShiftCommand() {
-        // Use requires() here to declare subsystem dependencies
-        this(0);
-    }
     
-    public ShiftCommand(int x)
+    public ShiftCommand()
     {
-    	state = x;
-    	if(state > 1)
-    		state = 0;
+    	// Use requires() here to declare subsystem dependencies
     	requires(Robot.gearboxSubsystem);
     }
 
@@ -29,12 +21,10 @@ public class ShiftCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-   		 Robot.gearboxSubsystem.shift(state);
-   		 
-   		 state += 1;
-   		 
-   		 if(state > 1)
-   			 state = 0;
+    	if(Robot.gearboxSubsystem.getState() == 0)
+    		Robot.gearboxSubsystem.shift(1);
+    	else
+    		Robot.gearboxSubsystem.shift(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
